@@ -1,17 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
     const openFormButton = document.getElementById("openForm");
     const closeFormButton = document.getElementById("closeForm");
-    const overlay = document.getElementById("overlay");
     const formSection = document.getElementById("JoinUsSection");
 
     openFormButton.addEventListener("click", function() {
-        overlay.style.display = "block";
-        formSection.classList.add("active");
+        formSection.style.display = "block";
     });
 
     closeFormButton.addEventListener("click", function() {
-        overlay.style.display = "none";
-        formSection.classList.remove("active");
+        formSection.style.display = "none";
+    });
+
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Menghentikan pengiriman formulir
+        formSection.style.display = "none";
+        // form tidak muncul
+        window.alert("Terima kasih atas pengiriman formulir Anda!");
     });
 });
 
