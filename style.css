@@ -24,64 +24,92 @@ body {
 
 /* Style the header and navigation */
 header {
-    min-height: 1vh;
-    padding: 2em 2em 0 2em;
-    background-size: cover;
-    position: relative;
-    transition: 0.7s;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    float: right;
-}
-
-
-nav ul li {
-    display: inline-block;
-    font-size: 1em;
-    font-weight: 600;
-    color: white;
-    transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-nav ul li:hover {
-    color: #fffb0d;
-    transform: scale(2);
-}
-
-
-nav ul li a {
-    text-decoration: none;
-    font-size: 1em;
-    transition: 0.3s;
-    font-weight: 600;
-    color: white;
-    transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
     z-index: 1;
+    padding: 20px 0;
+    transition: background-color 0.3s;
 }
 
-nav ul li:hover, a:hover {
-    color: #fffb0d;
-    transform: scale(2);
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 20px;
 }
 
 .nav-links {
-    position: absolute;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1em;
-    z-index: 9;
-    transition: 0.7s;
+    list-style: none;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background: linear-gradient(to bottom right, #006356 25%, #005c1c 60%);
+    margin-right: 20px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Hamburger menu */
+#check {
+    display: none;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    display: none; /* Sembunyikan hamburger pada awalnya */
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px auto;
+    transition: background 0.3s;
+}
+
+#check:checked + .checkbtn .bar {
+    background-color: transparent;
+}
+
+/* Media Query untuk hamburger menu */
+@media (max-width: 900px) {
+    .checkbtn {
+        display: block; /* Tampilkan hamburger saat layar lebih kecil dari 900px */
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan daftar navigasi saat hamburger aktif */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex; /* Tampilkan daftar navigasi saat hamburger aktif */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
 }
 
 
