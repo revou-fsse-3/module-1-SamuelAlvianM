@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Ubuntu&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d5399.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Future Society</title>
-
-    <!-- link css eksternal disini -->
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,12 +18,14 @@
     <!-- Header Start-->
     <header>
         <nav>
-            <input type="checkbox" name="" id="menu-toggle">
-            <label for="menu-toggle" id="menu-icon">&#9776;</label>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn"></label>
+            <i class="fas fa-bars"></i>
+            <label class="logo">FEA</label>
             <ul class="nav-links">
-                <li><a href="#home">Future-Society</a></li>
+                <li><a class="active" href="#home">Future-Society</a></li>
                 <li><a href="#About">About</a></li>
-                <li><a href="#Progress">Progress</a></li>
+                <li><a href="#Preview">Cards</a></li>
                 <li><a href="#JoinUsSection" id="openForm">Join Us</a></li>
             </ul>
         </nav>
@@ -153,8 +154,6 @@
 
     <!-- SECTION 4 - REGISTER, CONTACT INFO, SERVICE, Q&A -->
     <section id="JoinUsSection">
-        <button id="openForm">Join Us</button>
-
         <div class="overlay" id="overlay">
             <div class="form-container">
                 <span class="close" id="closeForm">&times;</span>

@@ -1,17 +1,17 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     const openFormButton = document.getElementById("openForm");
     const closeFormButton = document.getElementById("closeForm");
     const overlay = document.getElementById("overlay");
+    const formSection = document.getElementById("JoinUsSection");
 
     openFormButton.addEventListener("click", function() {
         overlay.style.display = "block";
+        formSection.classList.add("active");
     });
 
     closeFormButton.addEventListener("click", function() {
         overlay.style.display = "none";
+        formSection.classList.remove("active");
     });
 });
 
