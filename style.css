@@ -1,0 +1,766 @@
+*{
+    font-family: 'ubuntu';
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* Set background image */
+body {
+
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #20ff02;
+}
+
+
+/* Style the header and navigation */
+header {
+    min-height: 1vh;
+    padding: 2em 2em 0 2em;
+    background-size: cover;
+    position: relative;
+    transition: 0.7s;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    float: right;
+}
+
+
+nav ul li {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffb0d;
+    transform: scale(2);
+}
+
+
+a {
+    text-decoration: none;
+    font-size: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+    color: white;
+    transform: scale(1.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    color: #fffb0d;
+    transform: scale(2.0);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li:hover, a:hover {
+    color: #fffb0d;
+    transform: scale(2);
+}
+
+.nav-links {
+    position: absolute;
+    font-size: 18px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em;
+    z-index: 9;
+    transition: 0.7s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: linear-gradient(to bottom right, #006356 25%, #005c1c 60%);
+}
+
+.first-container {
+    max-width: 100%;
+    max-height: 50vh;
+    background-image: url(assets/SEC-2-CON.jpg);
+    position: relative;
+    display: grid;
+    padding-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-container::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.first-container h1 {
+    z-index: 1; 
+    color: white; 
+    position: relative; 
+}
+
+.col1 {
+    font-size: 3em;
+    grid-column: 1/ -1;
+    align-items: center;
+    width: 100%;
+    color: #f3f3f3;
+    text-align: center;
+    padding: 0 20px;
+}
+.captions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Grid 2 kolom */
+    gap: 10px; /* Jarak antara elemen captions */
+    justify-content: flex-end; /* Posisikan ke pojok bawah */
+    align-content: flex-end; /* Posisikan ke pojok bawah */
+    margin: 20px;
+    text-align: justify;
+    color: #ebff33;
+}
+
+/* Styles for captions (gunakan nth-child untuk mengatur setiap box) */
+.captions {
+    opacity: 0.8;
+    padding: 2em;
+    text-align: center;
+    font-size: 20px;
+    margin: 0; /* Tidak perlu margin di sini */
+    position: relative; /* Diperlukan untuk animasi */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Warna latar belakang untuk setiap "box" */
+.captions:nth-child(1) {
+    background-color: #026b10; /* Warna pertama */
+}
+
+.captions:nth-child(2) {
+    background-color: #978d05; /* Warna kedua */
+}
+
+.captions:nth-child(3) {
+    background-color: #1300c2; /* Warna ketiga */
+}
+
+.captions:nth-child(4) {
+    background-color: #c40202; /* Warna keempat */
+}
+
+.captions:nth-child(2n+1) {
+    grid-row: span 2; /* Membuat box setinggi 2 baris */
+}
+
+.captions:hover {
+    box-shadow: 0 0 10px 10px rgba(12, 255, 32, 0.8); /* Efek glowing saat di hover */
+}
+
+.container-fg1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 2px solid black;
+    animation: blink-border 2s infinite alternate; 
+}
+
+/* Keyframes untuk animasi berkedip */
+@keyframes blink-border {
+    0% {
+        border-color: #125cfd; /* Warna border awal */
+        box-shadow: none; /* Hilangkan shadow awal jika ada */
+    }
+    100% {
+        border-color: #750cff; /* Warna border animasi */
+        box-shadow: 0 0 10px 5px #05e650; /* Warna shadow saat berkedip */
+    }
+}
+
+.captions2 {
+    text-align: justify;
+    padding: 20px;
+    font-size: 30px;
+    margin: 10px;
+    width: 60%;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat (8, 150px);
+    grid-template-rows: repeat(9, 3vw);
+    grid-gap: 5px;
+    padding: 50px;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__item-1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery__item-2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery__item-3 {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+
+.gallery__item-5 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    
+}
+.gallery__item-6 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
+
+.gallery__item-7{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 9;
+}
+
+.gallery__item-8 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 9;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr );
+    grid-template-rows: repeat(1, 1fr );
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    margin: 10px; 
+}
+
+.card__inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.card__inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-radius: 20;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.9);
+}
+
+.card__face--front {
+    background: linear-gradient(to bottom right, #008170 25%, #00972d 60%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: color 0.7s;
+}
+
+.card__face--front:hover {
+    background: linear-gradient(to bottom right, #000000 20%, #01470c 60%);
+}
+
+.card__face--front h2 {
+    color: #ffae00;
+    font-size: 32px;
+    
+}
+
+.glow-on-hover  {
+    transition: color 0.2s;
+}
+
+.glow-on-hover:hover {
+    color:#ffffff
+}
+
+.card__face--back {
+    background-color: #070707;
+    transform: rotateY(180deg);
+}
+
+.card__content {
+    width: 100%;
+    height: 100%;
+}
+
+.card__header {
+    position: relative;
+    padding: 30px 30px 40px;
+}
+
+.card__header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 50% 0;
+    background-image: url(assets/content1-liq3.jpg);
+}
+/* Kartu 2 */
+#card2 .card__header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 0 0 50% 0;
+    background-image: url(assets/bg-2.gif); /* Ganti dengan URL gambar yang sesuai untuk card 2 */
+}
+
+.pp {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 5px solid #0dffdf;
+    object-fit: cover;
+}
+
+.card__header h3 {
+    color: #f3f3f3;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card__body {
+    color: rgb(252, 252, 252);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding: 20px;
+    text-shadow: black;
+}
+
+.card__body p {
+    color: #95e6ff;
+    font-size: 18px;
+    line-height: 15px;
+    padding: 40px 10px 10px 20px;
+    text-shadow: black;
+}
+
+/* Style the registration form */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+    display: flex;
+    padding: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    background: rgba(51, 64, 64, 0.7);
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    margin: 1px;
+    padding: 10px;
+    text-align: left;
+    color: #fff;
+    max-width: 75%;
+}
+
+.close {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+form input,
+form textarea {
+    width: 80%;
+    height: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+}
+
+form button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #45a049;
+}
+
+
+footer {
+    background: rgba(0, 78, 7, 0.836);
+    color: #fff;
+    padding: 5px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 100px;
+    height: auto;
+    opacity: 1;
+    border-radius: 50%;
+    position: relative;
+}
+
+.footer-links ul,
+.footer-social ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li,
+.footer-social ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: #ffae00;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-social i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 1150px) */
+@media (max-width: 1150px) {
+    nav ul li:nth-child(4),
+    nav ul li:nth-child(5) {
+    display: block;
+    }
+    header {
+    font-size: 18px;
+    }
+    .first-container {
+    background-size: absolute;
+    position: relative;
+    font-size: 14px;
+    }
+    .captions {
+        font-size: 15px;
+}
+}
+  /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 900px) */
+@media (max-width: 900px) {
+    nav ul li:nth-child(4),
+    nav ul li:nth-child(5) {
+    display: block;
+    }
+    header {
+        font-size: 18px;
+        padding: 20px;
+        width: 100%;
+        }
+        .first-container {
+        background-size: absolute;
+        font-size: 10px;
+        width: 100%;
+        }
+        .captions {
+            font-size: 15px;
+    }
+    .captions2{
+        font-size: 20px;
+    }
+    .card-container{
+        width: 80%;
+        align-items: center !important;
+        padding: 0 0 0 20px;
+    }
+    .overlay {
+        width: 90%;
+        height: 90%;
+        padding: 80px;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-content{
+        display: none ;
+    }
+}
+
+  /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 728px) */
+@media (max-width: 720px) {
+    nav ul li:nth-child(4),
+    nav ul li:nth-child(5) {
+    display: block;
+    }
+    header {
+        font-size: 4px;
+        padding: 20px 0;
+        }
+        .first-container {
+        background-size: absolute;
+        font-size: 8px;
+        }
+        .captions {
+            font-size: 14px;
+    }
+    .captions2{
+        font-size: 15px;
+    }
+    .card-container{
+        width: 30%;
+        display: grid;
+        grid-template-columns: repeat(2, 50vw );
+        gap: 10px;
+        grid-template-rows: repeat(1, 3fr );
+    }
+    .card {
+        width: 90%;
+        height: 600px;
+        text-align: justify;
+    }
+    .overlay {
+        width: 90%;
+        height: 90%;
+        padding: 80px;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-content{
+        display: none ;
+    }
+}
+
+  /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 600px) */
+@media (max-width: 600px) {
+    .gallery__img {
+    object-fit: fill;
+    }
+    nav ul li:nth-child(4),
+    nav ul li:nth-child(5) {
+    display: block;
+    }
+    header {
+        font-size: 20px;
+        padding: 20px 0;
+        background-size: absolute;
+        }
+        .first-title {
+            font-size: 20px !important;
+        }
+        .first-container {
+        background-size: relative;
+        font-size: 10px;
+        }
+        .captions {
+            font-size: smaller !important;
+    }
+    .captions2{
+        font-size: 8px;
+    }
+    .card-container{
+        width: 30%;
+    }
+    .card {
+        width: 85%;
+        height: 700px;
+        text-align: center;
+    }
+
+    .card__inner {
+        width: 100%;
+        height: 80%;
+    }
+    .card__face--front h2 {
+        font-size: 20px;
+    }
+    .pp {
+        display: block;
+        width: 150px;
+        height: 150px;
+    }
+    .card__body {
+        color: rgb(252, 252, 252);
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding: 20px;
+        text-shadow: black;
+    }
+    
+    .card__body p {
+        color: #95e6ff;
+        font-size: 13px;
+        padding: 30px 10px 10px 20px;
+        text-align: justify;
+    }
+    .overlay {
+        width: 90%;
+        height: 90%;
+        padding: 80px;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-content{
+        display: none ;
+    }
+    h1, h2, h3, p {
+        font-size: 14px;
+        }
+}
+
+  /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 425px) */
+@media (max-width: 425px) {
+    h1, h2, h3, p, ul, li, a{
+    font-size: 10px;
+    }
+    .gallery__img {
+        object-fit: cover;
+        }
+        nav ul li:nth-child(4),
+        nav ul li:nth-child(5) {
+        display: block;
+        }
+        header {
+            font-size: 10px;
+            padding: 20px 0;
+            background-size: absolute;
+            }
+            .first-title {
+                font-size: 10px !important;
+            }
+            .first-container {
+            background-size: relative;
+            object-fit: cover;
+            font-size: 8px;
+            }
+            .captions {
+                font-size: smaller
+        }
+        .captions2{
+            font-size: xx-small !important;
+        }
+
+        .overlay {
+            width: 90%;
+            height: 90%;
+            padding: 80px;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-content{
+            display: none ;
+        }
+    }
