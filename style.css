@@ -544,11 +544,6 @@ footer {
     header {
     font-size: 18px;
     }
-    .first-container {
-    background-size: absolute;
-    position: relative;
-    font-size: 14px;
-    }
     .captions {
         font-size: 15px;
 }
