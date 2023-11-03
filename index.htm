@@ -6,6 +6,7 @@
     <!-- link font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&family=Ubuntu&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/a076d5399.js"></script>
 
@@ -17,7 +18,7 @@
 
     <!-- Header Start-->
     <header>
-        <nav>
+        <nav class="navbar">
             <input type="checkbox" id="check">
             <label class="checkbtn" for="check">
                 <span class="bar"></span>
@@ -27,9 +28,10 @@
             <label class="logo">FEA</label>
             <ul class="nav-links">
                 <li><a class="active" href="#home">Future-Society</a></li>
+                <li><a href="#Carousel">Pictures</a></li>
                 <li><a href="#About">About</a></li>
                 <li><a href="#Preview">Cards</a></li>
-                <li><a href="#JoinUsSection" id="openForm">Join Us</a></li>
+                <li><a href="#JoinUs" id="openForm">Join Us</a></li>
             </ul>
         </nav>
     </header>
@@ -64,6 +66,61 @@
     </section>
 
     <!-- SECTION & HEADER End -->
+    <!-- CAROUSEL IMAGE -->
+    <section id="Carousel">
+        <div class="gallery">
+            <div class="slide active">
+                <img class="gallery-item" src="./assets/naturalcause-carousel.jpeg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="gallery-item" src="./assets/emoji2-carousel.jpeg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="gallery-item" src="./assets/farm-carousel2.jpeg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="gallery-item" src="./assets/zerowaste-carousel.jpg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 4</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="gallery-item" src="./assets/card-1.2-bpvc.jpg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 5</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="gallery-item" src="./assets/emojisphere-carousel.jpeg" alt="">
+                <div class="slide-p">
+                    <h2>Slide 6</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias dolore in distinctio numquam alias temporibus voluptate saepe iusto eum perferendis voluptates ab, consectetur quam! Eum magnam nobis possimus tenetur ipsum!</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="btn active"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+    </section>
     
     <!-- SECTION 2 - all about green projects -->
     <section id="About" class="container-fg1">
@@ -156,7 +213,7 @@
     <!-- section 3 END -->
 
     <!-- SECTION 4 - REGISTER, CONTACT INFO, SERVICE, Q&A -->
-    <section id="JoinUsSection">
+    <section id="JoinUs">
         <div class="overlay" id="overlay">
             <div class="form-container">
                 <span class="close" id="closeForm">&times;</span>
@@ -177,17 +234,45 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                     
-                    <label for="profession">I am a:</label>
-                    <input type="text" id="profession" name="profession" required>
+                    <label for="Gender">I am a:</label>
+                    <select id="Gender" name="Gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
                     
+                    <label for="message">Your Wish for Us:</label>
                     <textarea id="message" placeholder="Silahkan Tinggalkan Pesan atau Pertanyaan Anda!"></textarea>
                     
+                    <label for="interest">How interested are you in our website?</label>
+                    <input type="range" id="interest" name="interest" min="0" max="10" step="1">
+                    <div class="range-labels">
+                        <span>Trash</span>
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                        <span>Satisfied</span>
+                    </div>                  
                     <button type="submit" id="submitForm">Submit</button>
                 </form>
             </div>
+            <aside class="more-info">
+                <picture>
+                    <source media="(min-width:1000px)" srcset="assets/bgcontent-1.jpeg">
+                    <source media="(min-width:700px)" srcset="assets/card-3-engineer.jpeg">
+                    <img src="assets/card-2-sharonbarak.jpeg" alt="person" style="width:auto;">
+                </picture>
+                <h3> Become One of Us ! </h3>
+                <p>Join us in shaping a greener world through the Future Engineering Association and be part of the change for a more sustainable future. 
+                    Become a supporter of the environment and a member of the Future Engineering Association, as we work together to create a greener and cleaner world. 
+                    Together, we can drive positive change for a sustainable tomorrow,
+                    and we invite you to take an active role in making our world more eco-friendly by joining us.</p>
+            </aside>
         </div>
-        <div id="thankYouMessage">Terima kasih atas pengiriman formulir Anda!</div>
     </section>
+    <div id="thankYouMessage" class="act">
+        Terima kasih atas pengiriman formulir Anda!
+    </div>
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -195,7 +280,7 @@
             </div>
             <div class="footer-links">
                 <ul>
-                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Beranda</i></a></li>
                     <li><a href="#">Tentang Kami</a></li>
                     <li><a href="#">Layanan</a></li>
                     <li><a href="#">Kontak</a></li>
@@ -203,7 +288,7 @@
             </div>
             <div class="footer-social">
                 <ul>
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fab fa-linkedin"></i></a></li>

@@ -1,26 +1,36 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const openFormButton = document.getElementById("openForm");
-    const closeFormButton = document.getElementById("closeForm");
-    const formSection = document.getElementById("JoinUsSection");
+// CAROUSEL FUNCTIONS
+let slides = document.querySelectorAll('.slide');
+let btns = document.querySelectorAll('.btn');
+let currentSlide = 0; // Ubah currentSlide menjadi 0
 
-    openFormButton.addEventListener("click", function() {
-        formSection.style.display = "block";
+let manualNav = function (manual) {
+    slides.forEach((slide) => {
+        slide.classList.remove('active');
     });
 
-    closeFormButton.addEventListener("click", function() {
-        formSection.style.display = "none";
+    btns.forEach((btn) => {
+        btn.classList.remove('active');
     });
 
-    const signupForm = document.getElementById("signupForm");
+    slides[manual].classList.add('active');
+    btns[manual].classList.add('active');
+}
 
-    signupForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Menghentikan pengiriman formulir
-        formSection.style.display = "none";
-        // form tidak muncul
-        window.alert("Terima kasih atas pengiriman formulir Anda!");
+btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
     });
 });
 
+// Atur tampilan slide pertama saat halaman dimuat
+slides[currentSlide].classList.add('active');
+btns[currentSlide].classList.add('active');
+
+
+
+
+// CARDS ANIMATIONS
 // Menggunakan event listener untuk kartu pertama
 const card1 = document.querySelector("#card1 .card__inner");
 
@@ -33,4 +43,37 @@ const card2 = document.querySelector("#card2 .card__inner");
 
 card2.addEventListener("click", function() {
     card2.classList.toggle("is-flipped");
+});
+
+// FORM ANIMATION
+document.addEventListener("DOMContentLoaded", function() {
+    const openFormButton = document.getElementById("openForm");
+    const closeFormButton = document.getElementById("closeForm");
+    const formSection = document.getElementById("JoinUs");
+    const thankYouMessage = document.getElementById("thankYouMessage");
+
+    openFormButton.addEventListener("click", function() {
+        formSection.style.display = "block";
+        thankYouMessage.style.display = "none"; // Sembunyikan pesan Terima kasih saat membuka formulir
+    });
+
+    closeFormButton.addEventListener("click", function() {
+        formSection.style.display = "none";
+    });
+
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        formSection.style.display = "none";
+        thankYouMessage.style.display = "block"; // Menampilkan pesan Terima kasih
+
+        // Menghapus isi formulir setelah mengirim
+        signupForm.reset();
+
+        // Menghapus pesan Terima kasih setelah 3 detik
+        setTimeout(function() {
+            thankYouMessage.style.display = "none";
+        }, 2000);
+    });
 });

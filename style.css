@@ -1,17 +1,42 @@
+/* HTML OVERALL COMMAND */
 *{
-    font-family: 'ubuntu';
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-/* Set background image */
+/* BODY */
 body {
-    overflow-x: hidden;
+    overflow-x: auto;
+    max-width: 100% ;
+    padding: 0;
+    margin: 0;
 }
+/* menambahkan font-face */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(Font/Ubuntu-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(Font/Ubuntu-Bold.ttf);
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(Font/Ubuntu-Medium.ttf);
+    font-style: normal;
+    font-weight: 300;
+}
+/* FF ENDS */
 
+/* SCROLLBAR kanan kalau kita scroll-style-desktop only */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -25,68 +50,75 @@ body {
 /* Style the header and navigation */
 header {
     position: absolute;
-    width: 100%;
-    z-index: 1;
-    padding: 10px 0;
-    transition: background-color 0.3s;
-}
-
-nav {
+    width: 1000px;
     display: flex;
     justify-content: space-between;
+    z-index: 10;
     align-items: center;
 }
 
 .logo {
-    display: inline-block;
-    color: #fff;
+    position: fixed;
+    color: #fa7d17;
     font-size: 1.5em;
-    margin-left: 20px;
+    margin: 10px 10px;
+    font-weight: 700;
+    text-shadow: 1px 1px 5px black;
+    letter-spacing: 3px;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+nav ul {
+    position: relative;
+    display: flex;
+    left: 50px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-shrink: 3;
+    align-items: center;
 }
 
 nav ul li {
-    display: inline-block;
-    font-size: 1em;
+    position: relative;
+    list-style: none;
+    font-size: 0.8em;
     font-weight: 600;
     color: white;
     transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-nav ul li:hover {
-    color: #fffc54;
-    transform: scale(2);
 }
 
 nav ul li a {
+    position: relative;
+    margin: 0 20px;
     text-decoration: none;
-    font-size: 1em;
-    transition: 0.3s;
+    text-shadow: 1px 1px 5px black;
+    font-size: 1.5em;
+    transition: 0.5s;
     font-weight: 600;
     color: white;
-    transform: scale(1.1);
-    transition: background-color 0.3s, transform 0.3s;
-    z-index: 1;
+    transform: scale(1);
+    z-index: 99;
 }
 
 nav ul li:hover, a:hover {
     color: #fffb0d;
-    transform: scale(2);
+    transform: scale(1.7);
+    transition-duration: 0.5s;
 }
 
 .nav-links {
-    position: absolute;
+    position: fixed;
     font-size: 18px;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% ;
     padding: 1em;
-    z-index: 9;
-    transition: 0.7s;
+    transition: 0.1s;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background: linear-gradient(to bottom right, #006356 25%, #005c1c 60%);
+    background: linear-gradient(to bottom right, #00b9a0d2 25%, #01dd43b9 60%);
 }
 
 /* Hamburger menu */
@@ -95,8 +127,9 @@ nav ul li:hover, a:hover {
 }
 
 .checkbtn {
+    display: none;
     font-size: 30px;
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     position: relative;
 }
@@ -105,51 +138,23 @@ nav ul li:hover, a:hover {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #ff6803;
     margin: 5px auto;
     transition: background 0.3s;
+    box-shadow: 2px 1px 10px #ffffff;
 }
-
-/* Aktifkan tombol hamburger saat media kurang dari 900px */
-@media (max-width: 900px) {
-    .checkbtn {
-        display: inline-block; /* Tampilkan hamburger saat layar lebih kecil dari 900px */
-    }
-
-    /* Sembunyikan daftar navigasi saat hamburger aktif */
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #333;
-        width: 100%;
-    }
-
-    /* Tampilkan daftar navigasi saat hamburger aktif */
-    #check:checked + .nav-links {
-        display: inline-block;
-        position: fixed;
-    }
-
-    .nav-links li {
-        text-align: center;
-        margin: 10px 0;
-    }
-}
-
 
 .first-container {
-    max-width: 100%;
-    max-height: 100%;
-    background-image: url(assets/SEC-2-CON.jpg);
     position: relative;
-    display: grid;
-    padding-top: 50px;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    background-repeat: no-repeat;
+    background-image: url(assets/SEC-2-CON.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    display: grid;
+    padding-top: 80px;
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
 }
 
 .first-container::before {
@@ -164,8 +169,9 @@ nav ul li:hover, a:hover {
 }
 
 .first-container h1 {
-    color: white; 
+    color: rgb(252, 252, 252); 
     position: relative; 
+    text-shadow: 3px 1px 4px rgb(0, 243, 0); 
 }
 
 .col1 {
@@ -175,16 +181,14 @@ nav ul li:hover, a:hover {
     width: 100%;
     color: #f3f3f3;
     text-align: center;
-    padding: 0 20px;
 }
 .captions-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Grid 2 kolom */
     gap: 10px; 
-    justify-content: flex-end; 
-    align-content: flex-end; 
+    justify-content: center; 
+    align-content: center;  
     margin: 20px;
-    text-align: justify;
     color: #ebff33;
 }
 
@@ -223,9 +227,106 @@ nav ul li:hover, a:hover {
     box-shadow: 0 0 10px 10px rgba(12, 255, 32, 0.8); /* Efek glowing saat di hover */
 }
 
+/* selector untuk .Carousel */
+#Carousel .gallery {
+    margin: 0;
+    padding: 0;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top left, rgba(27, 114, 0, 0.906) 34%, #3cff00b9 97%);
+}
+
+/* Perbaiki .slide selector */
+#Carousel .slide {
+    z-index: 1;
+    position: absolute;
+    align-items: center;
+    width: 100vw;
+    margin: 5px 10px;
+    clip-path: circle(0% at 0 50%);
+}
+
+/* Perbaiki .active selector */
+#Carousel .slide.active {
+    transition: 2s;
+    clip-path: circle(150% at 0 50%);
+}
+
+/* Perbaiki .gallery-item selector */
+#Carousel .gallery-item {
+    width: 95%; 
+    max-height: 570px;
+    border-radius: 10px;
+    margin: 0 0 0 15px;
+    align-items: center;
+}
+
+/* Perbaiki .slide-p selector */
+#Carousel .slide-p {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    left: 2em;
+    top: 0;
+}
+
+#Carousel .slide .slide-p h2 { 
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    text-shadow: 1px 1px 5px black;
+    top: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+#Carousel .slide .slide-p p {
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 5px black;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px;
+    width: 80%;
+    border-radius: 4px;
+}
+
+.gallery .navigation {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgb(29, 255, 150);
+    border-radius: 8px;
+    left: -45%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+/* Perbaiki .btn selector */
+#Carousel .btn {
+    background: rgba(0, 255, 242, 0.922);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Perbaiki .btn.active selector */
+#Carousel .btn.active {
+    background: rgb(251, 255, 0);
+    box-shadow: 0 0 2px rgba(255, 240, 240, 0.2);
+}
+
 .container-fg1 {
+
     display: flex;
     flex-direction: row;
+    background: linear-gradient(to bottom left, rgba(255, 240, 240, 1), rgba(23, 255, 35, 0.322));
     justify-content: center;
     align-items: center;
     margin: 10px;
@@ -236,12 +337,12 @@ nav ul li:hover, a:hover {
 /* Keyframes untuk animasi berkedip */
 @keyframes blink-border {
     0% {
-        border-color: #125cfd; /* Warna border awal */
+        border-color: #000613; /* Warna border awal */
         box-shadow: none; 
     }
     100% {
-        border-color: #750cff; 
-        box-shadow: 0 0 10px 5px #05e650; 
+        border-color: #954bf7; 
+        box-shadow: 0 0 10px 5px #e63a05; 
     }
 }
 
@@ -318,7 +419,7 @@ nav ul li:hover, a:hover {
 
 .card-container{
     display: grid;
-    grid-template-columns: repeat(9, 1fr );
+    grid-template-columns: repeat(12, 1fr );
     grid-template-rows: repeat(1, 1fr );
 }
 
@@ -348,8 +449,8 @@ nav ul li:hover, a:hover {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     overflow: hidden;
-    border-radius: 20;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 1px 4px 15px 3px rgba(0, 0, 0, 0.9);
 }
 
 .card__face--front {
@@ -417,7 +518,9 @@ nav ul li:hover, a:hover {
     bottom: 0;
     z-index: -1;
     border-radius: 0 0 50% 0;
-    background-image: url(assets/bg-2.gif); 
+    background-image: url(assets/SEC-1-CON.jpeg); 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .pp {
@@ -461,26 +564,36 @@ nav ul li:hover, a:hover {
     display: none;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(77, 77, 77, 0.7);
     z-index: 0;
+    padding: 10px;
     display: flex;
-    padding: 200px;
     align-items: center;
     justify-content: center;
 }
 
 .form-container {
     background: rgba(51, 64, 64, 0.7);
-    border: 5px solid #4CAF50;
+    border: 5px solid #18d41e;
     border-radius: 10px;
-    margin: 1px;
+    margin: 20px;
+    flex: 1;
     padding: 30px;
     text-align: left;
     color: #fff;
     max-width: 75%;
     position: relative;
+}
+
+.more-info {
+    flex: 1;
+    margin-left: 20px; /* Margin to separate form and aside */
+    padding: 20px;
+    background: rgba(51, 64, 64, 0.7);
+    border: 5px solid #18d41e;
+    border-radius: 10px;
+    text-align: justify;
+    color: #fff;
 }
 
 form label {
@@ -489,7 +602,27 @@ form label {
     font-size: 20px;
     color: #fff;
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
 
+select option {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+select option:hover {
+    background-color: #f0f0f0;
+}
 form input,
 form textarea {
     width: 100%;
@@ -522,30 +655,108 @@ form button:hover {
     background: #45a049;
 }
 
-/* CSS thankyou */
+/* Styling range input element */
+input[type="range"] {
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+    border: none;
+    background: transparent;
+}
+
+/* Styling track */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(to right, rgba(252, 214, 2, 0.945), rgba(2, 233, 21, 0.952));
+    border-radius: 10px;
+}
+
+/* Styling thumb (handle) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #b4ff51;
+    border: 5px solid #ff6075;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Styling thumb value */
+input[type="range"]::-webkit-slider-thumb::before {
+    content: attr(value);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #a0af4c;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    transform: translateX(-50%);
+}
+
+/* Styling range labels */
+.range-labels {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 100;
+    color: #ffffff;
+}
+
+.range-labels span {
+    flex: 1;
+    text-align: center;
+}
+
+
 #thankYouMessage {
     display: none;
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    padding: 20px;
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    width: 100%;
+    background: #17f8f8;
+    color: white;
+    text-shadow: 1px 1px 5px black;
     text-align: center;
-    font-size: 20px;
-    margin: 20px 0;
+    font-size: 24px;
+    padding: 20px;
+    z-index: 9;
+}
+
+/* CSS untuk menampilkan pesan Terima kasih */
+#thankYouMessage.active {
+    display: block;
+}
+
+/* CSS untuk menutup popup */
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 
 footer {
-    background: rgba(0, 78, 7, 0.836);
+    background: rgba(0, 0, 0, 0.836);
     color: #fff;
     padding: 5px 0;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 400px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -557,11 +768,14 @@ footer {
     position: relative;
 }
 
-.footer-links ul,
-.footer-social ul {
-    list-style-type: none;
+.footer-links ul {
+    list-style: url(assets/gear.png);
+    align-items: center;
     padding: 0;
     margin: 0;
+}
+.footer-social ul{
+    list-style: none;
 }
 
 .footer-links ul li,
@@ -592,80 +806,308 @@ footer {
 }
 
 /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 1150px) */
-@media (max-width: 1150px) {
-    nav ul li:nth-child(4),
-    nav ul li:nth-child(5) {
-    display: block;
+@media screen and (max-width: 1150px) {
+
+    nav ul li a {
+        font-size: 1em;
     }
-    header {
-    font-size: 18px;
+
+    #Carousel .gallery {
+        height: 40vh;
     }
+
+    #Carousel .slide {
+        align-items: center;
+        width: 90%;
+        clip-path: circle(0% at 0 50%);
+    }
+
+    #Carousel .gallery-item {
+        width: 100%; 
+        max-height: 570px;
+        border-radius: 10px;
+        align-items: center;
+    }
+
+    .slide .slide-p {
+        z-index: 1;
+        left: 6em;
+        top: 0;
+        padding: 0;
+    }
+
+    .slides .slide-p h2 {
+        font-size: 40px;
+    }
+
+    .slides .slide-p p {
+        width: 70%;
+        font-size: 24px;
+    }
+
+    .gallery .navigation {
+        margin-top: 50px;
+    }
+
+    .gallery .navigation .btn {
+        width: 10px;
+        height: 10px;
+        margin: 8px;
+    }
+
     .captions {
         font-size: 15px;
 }
+
+.overlay {
+    padding: 8px;
+    font-size: 16px !important;
 }
+
+form label {
+    font-size: 16px !important;
+}
+
+form input,
+form textarea {
+    font-size: 14px;
+    width: 95%
+}
+
+.range-labels {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.more-info picture {
+    position: relative;
+    left: 60px;
+}
+.more-info h3, p {
+    padding-top: 10px;
+}
+
+
+.footer-content {
+    display: none;
+}
+}
+
   /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 900px) */
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
 
     header {
         font-size: 18px;
-        padding: 20px;
-        width: 100%;
-        }
+        width: 18%;
+        height: 40px;
+        padding: 10px 0;
+        background-color: rgba(0, 0, 0, 0.527);
+        position: fixed;
+        z-index: 101;
+    }
+
+    .logo {
+        position: fixed;
+        margin: 20px 0 0 0;
+        z-index: 101;
+    }
+
+    #check {
+        display: none;
+    }
+
+    .checkbtn {
+        display: inline-block;
+        z-index: 101;
+        margin: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 60vh;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 100;
+        transition: all 0.2s ease-in-out;
+    }
+
+    #check:checked ~ .nav-links {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
     .first-container {
-        background-size: absolute;
+        position: relative;
+        padding-top: 50px;
+    }
+
+    #Carousel .gallery {
+        height: 40vh;
+    }
+
+    #Carousel .slide {
+        align-items: center;
+        width: 90%;
+        clip-path: circle(0% at 0 50%);
+    }
+
+    #Carousel .gallery-item {
+        width: 100%; 
+        max-height: 570px;
+        border-radius: 10px;
+        align-items: center;
+    }
+
+    .slide .slide-p {
+        z-index: 1;
+        left: 6em;
+        top: 0;
+        padding: 0 !important;
+    }
+
+    .slides .slide-p h2 {
+        font-size: 25px;
+    }
+
+    .slides .slide-p p {
+        width: 70%;
+        font-size: 15px;
+    }
+
+    .gallery .navigation {
+        margin-top: 50px;
+    }
+
+    .gallery .navigation .btn {
+        width: 10px;
+        height: 10px;
+        margin: 8px;
+    }
+
+    .first-container {
+        background-size: relative;
         width: 100%;
         font-size: 10px;
+        padding-top: 60px;
     }
+    
+    .captions-container {
+        gap: 5px;
+        padding-top: 10px;
+    }
+
     .col1 {
         font-size: 1.6em;
         width: 100%;
-        color: #f3f3f3;
-        text-align: center;
         position: absolute;
         padding-top: 20px;
     }
+
     .captions {
         font-size: 15px;
         padding: 15px;
-        margin-top: 15px;
     }
-    .captions2{
+
+    .captions2 {
         font-size: 15px;
     }
-    .card-container{
-        width: 80%;
-        align-items: center !important;
+
+    .card-container {
+        align-items: center;
         padding: 0 0 0 20px;
     }
-    .overlay {
-        width: 90%;
-        height: 90%;
-        padding: 80px;
-        align-items: center;
-        justify-content: center;
+    
+    .card {
+        width: 300px;
+        height: 600px;
     }
-    .footer-content{
-        display: none ;
+
+    .overlay {
+        padding: 8px;
+        font-size: 14px !important;
+    }
+
+    form label {
+        font-size: 14px !important;
+    }
+
+    form input,
+    form textarea {
+        font-size: 12px;
+        width: 90%
+    }
+
+    .range-labels {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .more-info picture {
+        position: relative;
+        left: 0;
+    }
+
+    .footer-content {
+        display: none;
     }
 }
 
   /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 728px) */
-@media (max-width: 720px) {
-    nav ul li:nth-child(4),
-    nav ul li:nth-child(5) {
-    display: block;
-    }
+@media screen and (max-width: 720px) {
     header {
-        font-size: 4px;
-        padding: 20px 0;
+        font-size: 12px;
+        padding: 5px 0;
         }
-        .first-container {
+    
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    #Carousel .gallery-item {
+        max-height: 350px;
+    }
+
+    #Carousel .slide .slide-p {
+        padding: 2px 15px;
+        left: 1em;
+        top : 1em;
+    }
+
+    #Carousel .slide .slide-p h2 {
+        font-size: 25px;
+    }
+
+    #Carousel .slide .slide-p p {
+        width: 80%;
+        font-size: 14px ;
+        text-align: justify;
+    }
+
+    .gallery .navigation {
+        margin-top: 50px;
+    }
+
+    .gallery .navigation .btn {
+        width: 10px;
+        height: 10px;
+        margin: 8px;
+    }
+
+    .first-container {
         background-size: absolute;
-        font-size: 8px;
+        font-size: 12px;
         }
-        .captions {
-            font-size: 14px;
+    .captions {
+        font-size: 14px;
     }
     .captions2{
         font-size: 15px;
@@ -683,34 +1125,82 @@ footer {
         text-align: justify;
     }
     .overlay {
-        width: 90%;
-        height: 90%;
-        padding: 80px;
+        padding: 10px 8px;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
     }
+
+    form label {
+        font-size: 12px;
+        color: #fff;
+    }
+
+        .range-labels {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .more-info picture {
+        position: relative;
+        left: 0;
+    }
+
     .footer-content{
         display: none ;
     }
 }
 
   /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 600px) */
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .gallery__img {
     object-fit: fill;
     }
-    nav ul li:nth-child(4),
-    nav ul li:nth-child(5) {
-    display: block;
-    }
+
     header {
-        font-size: 20px;
-        padding: 20px 0;
-        background-size: absolute;
+        font-size: 10px;
+        padding: 2px 8px;
     }
-    nav ul li a{
-        font-size: 14px;
+
+    .logo {
+        font-size: 16px;
+        left: 12%;
     }
+
+    .bar {
+        width: 20px;
+        height: 3px;
+        margin: 3px;
+    }
+
+    #Carousel .gallery {
+        width: 100%;
+        height: 450px;
+    }
+    
+    .gallery .slide .slide-p {
+        padding: 10px 20px;
+    }
+
+    .gallery .slide .slide-p h2{
+        font-size: 22px ;
+    }
+
+    .gallery .slide .slide-p p{
+        width: 80%;
+        font-size: 13px;
+    }
+
+    .gallery .navigation {
+        bottom: 15px;
+    }
+
+    .gallery .navigation .btn{
+        width: 8px;
+        height: 8px;
+        margin: 6px;
+    }
+
     .first-title {
         font-size: 40px !important;
 
@@ -762,85 +1252,53 @@ footer {
         text-align: justify;
     }
     .overlay {
-        width: 90%;
-        height: 90%;
-        padding: 80px;
         align-items: center;
         justify-content: center;
     }
-    .footer-content{
-        display: none ;
+
+    #signupForm {
+        padding: 10px;
     }
+
+    .more-info {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .more-info img {
+        width: 100px !important;
+    }
+
+    .more-info p {
+        text-align: justify !important;
+        color: #0dffdf;
+    }
+
+    form input,
+    form textarea {
+    font-size: 14px;
+    padding: 4px;
+    width: 100%;
+}
+
+    form textarea {
+        height: 60px;
+    }
+
+    range-labels {
+        font-size: 11px !important;
+    }
+
+    select {
+        padding: 0;
+    }
+
+    form button {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+
     h1, h2, h3, p {
         font-size: 14px;
         }
 }
-
-  /* CSS untuk layar yang lebih kecil (misalnya, lebar kurang dari 425px) */
-@media (max-width: 425px) {
-    h1, h2, h3, p, ul, li, a{
-    font-size: 10px;
-    }
-    .gallery__img {
-        object-fit: cover;
-        }
-        nav ul li:nth-child(4),
-        nav ul li:nth-child(5) {
-        display: block;
-        }
-        header {
-            font-size: 12px;
-            padding: 20px 0;
-            background-size: absolute;
-            }
-        .first-container {
-            object-fit: cover;
-            padding: 15px;
-            grid-row-start: 1;
-            grid-row-end: 3;
-            font-size: 15px;
-        }
-        .captions {
-            font-size: 9px !important;
-            padding: 25px
-        }
-        .captions2{
-            font-size: xx-small !important;
-        }
-        .card-container{
-            width: 20%;
-        }
-        .card {
-            width: 75%;
-            height: 500px;
-            text-align: center;
-        }
-        .pp {
-            display: block;
-            width: 100px;
-            height: 100px;
-        }
-        .card__body p {
-            color: #95e6ff;
-            font-size: 9px;
-            padding: 3px 0 0 0;
-            text-align: justify;
-        }
-        .overlay {
-            width: 90%;
-            height: 90%;
-            padding: 80px;
-            align-items: center;
-            justify-content: center;
-        }
-        .overlay {
-            width: 90%;
-            height: 90%;
-            padding: 80px;
-            align-items: center;
-            justify-content: center;
-        }
-        .footer-content{
-            display: none ;
-        }
-    }
